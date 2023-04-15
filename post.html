@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js" integrity="sha512-nnNHpffPSgINrsR8ZAIgFUIMexORL5tPwsfktOTxVYSv+AUAILuFYWES8IHl+hhIhpFGlKvWFiz9ZEusrPcSBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript">
+		axios.get("https://reqres.in/api/users?page=2")
+		.then((res)=>{
+			console.log(res.data)
+		})
+		function demo(){
+			var username=document.getElementById("username").value
+			var email=document.getElementById("email").value
+			var password=document.getElementById("password").value
+			var mobile=document.getElementById("mobile").value
+			axios.post("https://reqres.in/api/users",{firstname:username,username:email,password:password,phone_number:mobile})
+			.then((res)=>{
+				console.log(res.data)
+			})
+			/*fetch("https://reqres.in/api/users",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({firstname:username,username:email,password:password,phone_number:mobile})
+		})
+		.then(function(res){
+			console.log(res)
+			return res.json()
+		})
+		.then((res)=>{
+			console.log(res)
+		})*/
+		return false
+		}
+		/*var a=[23,45,657,98],b=["html","css","bootstrap","javascript"],c=[true,false],obj={name:"JS",age:20,gender:"male"}
+		var d=[...a,...b,...c]
+		console.log(d)*/
+		
+		/*b.forEach((t)=>{
+			console.log(t)
+		})*/
+		/*for(k of a)
+			console.log(k)*/
+		/*for(s in obj)
+			console.log(s,obj[s])*/
+	</script>
+</head>
+<body>
+	<form onsubmit="return demo()">
+		<input type="text" id="username" placeholder="username" />
+		<input type="text" id="email" placeholder="email" />
+		<input type="text" id="password" placeholder="password" />
+		<input type="number" id="mobile" placeholder="mobile number" />
+		<button>Submit</button>
+	</form>
+</body>
+</html>
